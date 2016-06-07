@@ -1,3 +1,5 @@
+<?php
+
 class PostsControllerTests extends TestCase{
 
 
@@ -20,7 +22,7 @@ class PostsControllerTests extends TestCase{
 
         $this->app->instance('Posts', $this->mock);
 
-        $response = $this->call('', 'post');
+        $response = $this->call('GET', 'posts');
 
         $this->assertViewHas('posts');
 
@@ -33,3 +35,5 @@ class PostsControllerTests extends TestCase{
 
 
 }
+
+?>

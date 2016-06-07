@@ -12,10 +12,17 @@ class CreatePostsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('posts', function(Blueprint $table)
+		Schema::create('tbl_posts', function(Blueprint $table)
 		{
 			$table->increments('id');
+            $table->string('post_title');
+            $table->string('post_caption')->nullable();
+            $table->integer('user_id')->references('id')->on('users');
+            $table->longText('post_description');
+
 			$table->timestamps();
+
+			// set to InnoDB
 		});
 	}
 
@@ -26,7 +33,7 @@ class CreatePostsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('posts');
+		Schema::drop('tbl_posts');
 	}
 
 }
